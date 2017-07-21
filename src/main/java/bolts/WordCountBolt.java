@@ -42,21 +42,9 @@ public final class WordCountBolt extends BaseBasicBolt {
 	}
 
 	private void logWordCount() {
-		final StringBuilder wordCountLog = new StringBuilder();
-		int i = 0;
+		final StringBuilder wordCountLog = new StringBuilder();		
 		for (final String key : this.wordCountTracketMap.keySet()) {
-			if (6 < key.length()) {
-				i++;
-				if (0 != (i % 7)) {
-					wordCountLog
-							.append(String.format("%15s", key))
-							.append(": ")
-							.append(String.format("%-3d", this.wordCountTracketMap.get(key)))
-							.append("\t");
-				} else {
-					wordCountLog.append("\n");
-				}
-			}
+			wordCountLog.append(key + ": " + this.wordCountTracketMap.get(key) + "\n");
 		}
 		LOGGER.info("\n\n{}\n{}\n", new Date(), wordCountLog.toString());
 	}

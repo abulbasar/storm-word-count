@@ -16,7 +16,7 @@ import bolts.WordCountBolt;
 
 public final class KafkaWordCountTopology {
 	private static final Logger LOGGER = LoggerFactory.getLogger(KafkaWordCountTopology.class);
-	private static final String TOPOLOGY_NAME = "WordCount";
+	private static final String TOPOLOGY_NAME = "KafkaWordCount";
 	
 	public static final void main(final String[] args) {
 		

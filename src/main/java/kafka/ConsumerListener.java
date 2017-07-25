@@ -6,6 +6,7 @@ import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import kafka.javaapi.consumer.ConsumerConnector;
+import utils.PropertiesLoader;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +22,8 @@ public class ConsumerListener {
 
 	public ConsumerListener() {
 		String groupId = "storm";
-		Properties props = new Properties();
+		Properties props = PropertiesLoader.load("kafka.properties");
+		/*
 		props.setProperty("zookeeper.connect", "localhost:2181/kafka");
 		props.setProperty("group.id", groupId);
 
@@ -33,7 +35,7 @@ public class ConsumerListener {
 	     props.put("auto.commit.interval.ms", "10000");
 	     props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 	     props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");		
-
+        */
 		consumerConnector = Consumer.createJavaConsumerConnector(new ConsumerConfig(props));
 	}
 
